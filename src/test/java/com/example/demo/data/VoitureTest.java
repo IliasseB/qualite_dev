@@ -11,7 +11,6 @@ public class VoitureTest {
 
     @Test
     void creerVoiture() {
-        // Création d'une voiture avec le constructeur avec paramètres
         Voiture V = new Voiture("Renault", 20000);
 
         // Vérification des valeurs initiales
