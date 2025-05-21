@@ -18,6 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class WebTests {
+    
     @Autowired
     private MockMvc mockMvc;
     
@@ -26,8 +27,8 @@ public class WebTests {
     
     @Test
     public void testAjoutVoiture() throws Exception {
-        // Création de l'objet et conversion en JSON
-        Voiture voiture = new Voiture("ferrari", 5000);
+        // Création et conversion en JSON
+        Voiture voiture = new Voiture("f", 100);
         String voitureJson = new ObjectMapper().writeValueAsString(voiture);
         
         // Test de l'appel REST
@@ -36,7 +37,7 @@ public class WebTests {
                 .content(voitureJson))
                 .andExpect(status().isOk());
         
-        // Vérification du service
+        // Vérification
         verify(statistique).ajouter(voiture);
     }
 }
